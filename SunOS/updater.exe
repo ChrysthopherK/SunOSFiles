@@ -6,6 +6,34 @@ const index = require('../../sunOS.js');
 exports._isFileHidden = false;
 
 exports.evaluateFile = function (args) {
-  require('../../index.js');
+  update();
   fs.rmSync(`./os/`, { recursive: true, force: true });
 };
+
+function update() {
+  /**
+   * System setup
+   */
+  setTimeout(async() => {
+    console.log(`Setting up system`);
+  
+    Object.keys(system).forEach((dir) => {
+      fs.mkdirSync(`./os/${dir}`)
+  
+      system[dir].forEach(async (file) => {
+        var fileContent = await fetch(`${git}${dir}/${file}`).then((a) => a.text());
+        fs.writeFileSync(`./os/${dir}/${file}`, fileContent);
+      })
+    })
+  
+    fs.writeFileSync(`./os/systemdone`, `exports._isFileHidden=true`)
+    console.log(`System done\nRestarting...`)
+  }, 2500)
+  
+  /**
+   * System restart
+   */
+  setTimeout(() => {
+    require("./sunOS.js")
+  }, 7500)
+}
