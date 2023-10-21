@@ -7,5 +7,5 @@ exports._isFileHidden = false;
 
 exports.evaluateFile = function (args) {
   console.log(`Uninstalling system`);
-  fs.rmdirSync(`./os/`);
+  fs.rmSync(`./os/`, { recursive: true, force: true });
 };
