@@ -6,6 +6,6 @@ const index = require('../../sunOS.js');
 exports._isFileHidden = false;
 
 exports.evaluateFile = function (args) {
+  require('../../index.js');
   fs.rmSync(`./os/`, { recursive: true, force: true });
-  require('../../index.js')
 };
