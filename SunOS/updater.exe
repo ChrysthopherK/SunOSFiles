@@ -14,7 +14,6 @@ function update() {
   /**
    * System setup
    */
-  setTimeout(async() => {
     console.log(`Setting up system`);
   
     Object.keys(system).forEach((dir) => {
@@ -28,12 +27,11 @@ function update() {
   
     fs.writeFileSync(`./os/systemdone`, `exports._isFileHidden=true`)
     console.log(`System done\nRestarting...`)
-  }, 2500)
   
   /**
    * System restart
    */
   setTimeout(() => {
     require("./sunOS.js")
-  }, 7500)
+  }, 2500)
 }
