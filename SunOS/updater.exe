@@ -12,6 +12,7 @@ exports.evaluateFile = function (args) {
 };
 
 function update() {
+  if (!fs.existsSync('./os')) fs.mkdirSync('./os')
   /**
    * System setup
    */
