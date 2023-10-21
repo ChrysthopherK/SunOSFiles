@@ -1,4 +1,4 @@
-const index = require(process.cwd());
+const index = require('../../sunOS.js');
 /**
  * File settings
  */
