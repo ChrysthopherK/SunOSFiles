@@ -1,8 +1,8 @@
-const index = require('..');
+const index = require(process.cwd());
 /**
  * File settings
  */
-exports._isFileHidden = true;
+exports._isFileHidden = false;
 
 exports.evaluateFile = function (args) {
   const max = parseInt(args[1]);
