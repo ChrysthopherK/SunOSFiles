@@ -7,8 +7,8 @@ const { git, system } = require('../../settings.json')
 exports._isFileHidden = false;
 
 exports.evaluateFile = function (args) {
-  update();
   fs.rmSync(`./os/`, { recursive: true, force: true });
+  update();
 };
 
 function update() {
